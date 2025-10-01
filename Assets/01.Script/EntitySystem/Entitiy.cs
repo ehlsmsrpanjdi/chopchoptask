@@ -9,7 +9,7 @@ public class Entitiy : MonoBehaviour, IDamageable
     protected float entityCurrentHP = 100;
     protected float entityHealAmount = 0;
     protected float entityCriticalDamage = 100;
-    protected float entityCriticalChange = 1;
+    protected int entityCriticalChange = 50;
 
     public EntityHPBar hpBar;
 
@@ -50,7 +50,20 @@ public class Entitiy : MonoBehaviour, IDamageable
         entityCurrentHP -= _Damage;
         DamageEffectFactory.SpawnDamageEffect(_Damage, this);
         hpBar.SetFill(GetHPRatio());
-        if (entityCurrentHP < 0)
+        if (entityCurrentHP <= 0)
+        {
+            Dead();
+            return true;
+        }
+        return false;
+    }
+
+    public virtual bool TakeCriticalDamage(float _Damage)
+    {
+        entityCurrentHP -= _Damage;
+        DamageEffectFactory.SpawnDamageCriticalEffect(_Damage, this);
+        hpBar.SetFill(GetHPRatio());
+        if (entityCurrentHP <= 0)
         {
             Dead();
             return true;
@@ -78,4 +91,6 @@ public class Entitiy : MonoBehaviour, IDamageable
     {
         StartCoroutine(_Coroutine);
     }
+
+
 }

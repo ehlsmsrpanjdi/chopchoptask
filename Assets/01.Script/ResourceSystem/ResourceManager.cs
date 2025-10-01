@@ -20,6 +20,8 @@ public class ResourceManager
 
     Dictionary<string, GameObject> resourceDictionary = new Dictionary<string, GameObject>();
 
+    Dictionary<string, Sprite> spriteResourceDictionary = new Dictionary<string, Sprite>();
+
     public IEnumerator ResourceInit()
     {
         yield return LoadResource("Skill/Skill_0");
@@ -34,9 +36,23 @@ public class ResourceManager
         yield return LoadResource("UI/PlayerStatUI");
     }
 
+    public Sprite GetOnLoadedSprite(string _resourcePath)
+    {
+        return spriteResourceDictionary[_resourcePath];
+    }
+
     public GameObject GetOnLoadedResource(string _ResourcePath)
     {
         return resourceDictionary[_ResourcePath];
+    }
+
+    public IEnumerator LoadSprite(string _ResourcePath)
+    {
+        ResourceRequest request = Resources.LoadAsync<Sprite>(_ResourcePath);
+        yield return request;
+        Sprite loadedObj = request.asset as Sprite;
+        spriteResourceDictionary.Add(_ResourcePath, loadedObj);
+        yield break;
     }
 
     public IEnumerator LoadResource(string _ResourcePath)

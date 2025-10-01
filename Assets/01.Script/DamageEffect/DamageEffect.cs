@@ -20,6 +20,12 @@ public class DamageEffect : MonoBehaviour
         damageText.text = _Str;
         moveTime = 2f;
     }
+    public void RedInit(string _Str)
+    {
+        damageText.text = _Str;
+        damageText.color = Color.red;
+        moveTime = 2f;
+    }
 
     private void FixedUpdate()
     {

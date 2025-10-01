@@ -186,7 +186,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: STR
+  m_text: 'Critical
+
+    Damage'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -270,7 +272,7 @@ GameObject:
   - component: {fileID: 5998523971324667730}
   - component: {fileID: 4560009828318294590}
   m_Layer: 5
-  m_Name: StrBackGround (3)
+  m_Name: CriticalChanceBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -459,6 +461,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strButton: {fileID: 1606752589777840785}
   hpButton: {fileID: 4968319675220321233}
+  cDamageButton: {fileID: 7043489686600174727}
+  cChanceButton: {fileID: 4560009828318294590}
 --- !u!1 &3419931951252467732
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,7 +770,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: STR
+  m_text: Critical Chance
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -904,7 +908,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7242676129205873767, guid: c7f7e48003ef85848ac21f69ee4d7af0, type: 3}
+  m_Sprite: {fileID: 2739099753214677588, guid: 7ebbe8a66c8166d45a87ef62481e8f41, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1092,7 +1096,7 @@ GameObject:
   - component: {fileID: 7429582349236569206}
   - component: {fileID: 6771054256314454783}
   m_Layer: 5
-  m_Name: StrBtn
+  m_Name: CriticalDamageIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1146,7 +1150,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7242676129205873767, guid: c7f7e48003ef85848ac21f69ee4d7af0, type: 3}
+  m_Sprite: {fileID: 8909946324045971829, guid: 64105460c44937a4c9f1e3e1d6ed595d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1349,7 +1353,7 @@ GameObject:
   - component: {fileID: 884017871395353359}
   - component: {fileID: 7043489686600174727}
   m_Layer: 5
-  m_Name: StrBackGround (2)
+  m_Name: CriticalDamageBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

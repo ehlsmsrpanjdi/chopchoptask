@@ -55,6 +55,17 @@ public class Monster : Entitiy
         return damagedResult;
     }
 
+    public override bool TakeCriticalDamage(float _Damage)
+    {
+        bool damagedResult = base.TakeCriticalDamage(_Damage);
+
+        if (MonsterTypeEnum.Boss == monsterType)
+        {
+            bossUI.SetHpRatio(GetHPRatio());
+        }
+        return damagedResult;
+    }
+
     private void OnDestroy()
     {
         if (MonsterTypeEnum.Boss == monsterType)

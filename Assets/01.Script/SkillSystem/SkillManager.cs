@@ -59,9 +59,9 @@ public class SkillManager
         for (int i = 0; i < coolTimeList.Count; ++i)
         {
             SkillData data = equipmentSkillList[i];
-            if(-1 != data.skillCondition)
+            if (-1 != data.skillCondition)
             {
-                if(false == SkillConditionContainer.Instance.CheckCondition(data.skillCondition, data.damageRatio))
+                if (false == SkillConditionContainer.Instance.CheckCondition(data.skillCondition, data.damageRatio))
                 {
                     continue;
                 }
@@ -69,6 +69,7 @@ public class SkillManager
             if (coolTimeList[i] <= 0)
             {
                 coolTimeList[i] = equipmentSkillList[i].coolTime;
+                UIManager.Instance.GetUI<SkillUI>().SkillUse(i);
                 return SpawnSkill(i);
             }
         }

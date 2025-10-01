@@ -18,8 +18,17 @@ public class AttackEffect : EffectBase
             {
                 yield break;
             }
-            float damage = _User.GetDamage() * _skillData.damageRatio / 100;
-            _Target.TakeDamage(damage);
+            if (true == MathHelper.GetPercentageByBool(Player.Instance.GetCritical()))
+            {
+                float damage = _User.GetCriticalDamage() * _skillData.damageRatio / 100;
+                _Target.TakeCriticalDamage(damage);
+            }
+            else
+            {
+                float damage = _User.GetDamage() * _skillData.damageRatio / 100;
+                _Target.TakeDamage(damage);
+            }
+
 
             yield return CoroutineHelper.WaitTime(0.1f);
         }

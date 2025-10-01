@@ -51,8 +51,8 @@ public class SkillDataManager
     {
         //  스킬 ID, 스킬 데미지 비율, 몇 번 때리는가, 타수가 있는가, 어떤 타입의 스킬인지, 쿨타임
         data.Add(0, new SkillData(0, 100, 1, 1, 1, 0, skillEnum.Attack)); // temp Data고 나중에 excel화 시킬거임
-        data.Add(1, new SkillData(1, 300, 2, 4, 1, 3, skillEnum.Attack)); // temp Data고 나중에 excel화 시킬거임
-        data.Add(2, new SkillData(2, 30, 1, 1, 2, 3, skillEnum.Heal, 1)); // temp Data고 나중에 excel화 시킬거임
+        data.Add(1, new SkillData(1, 300, 2, 4, 1, 3, skillEnum.Attack));
+        data.Add(2, new SkillData(2, 30, 1, 1, 2, 3, skillEnum.Heal, 1));
         data.Add(3, new SkillData(3, 1.3f, 10, 1, 4, 15, skillEnum.Passive));
     }
 

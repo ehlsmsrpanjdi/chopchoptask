@@ -24,21 +24,10 @@ public class DebugWindow : EditorWindow
             GameManager.Instance.DebugNextStage();
         }
 
-        if (GUILayout.Button("BossSpawn"))
+        if (GUILayout.Button("gainGold"))
         {
-            StageManager.Instance.SpawnBoss();
+            Player.Instance.GainGold(100000);
         }
-
-        if (GUILayout.Button("Idle"))
-        {
-            Player.Instance.SetState(StateEnum.Idle);
-        }
-
-        if (GUILayout.Button("Run"))
-        {
-            Player.Instance.SetState(StateEnum.Run);
-        }
-
 
     }
 }

@@ -37,7 +37,6 @@ public class Player : Entitiy
         }
     }
 
-
     private void Update()
     {
         float frameTime = Time.deltaTime;
@@ -73,19 +72,34 @@ public class Player : Entitiy
 
     public void HealHP(float _HealRatio)
     {
-        float healAmount = entityHP * _HealRatio;
+        float healAmount = GetHP() * _HealRatio;
         entityCurrentHP += healAmount;
         if (entityCurrentHP > entityHP)
         {
             entityCurrentHP = entityHP;
         }
 
-        hpBar.SetFill(entityCurrentHP / entityHP);
+        hpBar.SetFill(entityCurrentHP / GetHP());
     }
 
     public override float GetDamage()
     {
-        return playerBuf.attack.GetValue(entityAttack);
+        return playerBuf.attack.GetValue(entityAttack + playerStat.GetStr());
+    }
+
+    public float GetHP()
+    {
+        return entityHP + playerStat.GetHp();
+    }
+
+    public int GetCritical()
+    {
+        return entityCriticalChange + playerStat.GetCChance();
+    }
+
+    public float GetCriticalDamage()
+    {
+        return GetDamage() * (entityCriticalDamage + playerStat.GetCDamage() + 100) / 100;
     }
 
     #endregion
@@ -118,7 +132,23 @@ public class Player : Entitiy
 
     public bool HpUpgrade()
     {
-        return playerStat.HPLevelUp();
+        if (true == playerStat.HPLevelUp())
+        {
+            entityCurrentHP += playerStat.GetHp();
+            hpBar.SetFill(entityCurrentHP / GetHP());
+            return true;
+        }
+        return false;
+    }
+
+    public bool CDamageUpgrade()
+    {
+        return playerStat.CDamageLevelUp();
+    }
+
+    public bool CChanceUpgrade()
+    {
+        return playerStat.CChanceLevelUP();
     }
     #endregion
 
