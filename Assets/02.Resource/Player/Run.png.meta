@@ -1,0 +1,514 @@
+fileFormatVersion: 2
+guid: 8be81d3cb45f89c4997a1dd68d15ffb6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -113386764071921642
+    second: Glitch Samurai-Run_0
+  - first:
+      213: 6452349524799794523
+    second: Glitch Samurai-Run_1
+  - first:
+      213: 8553350941915221913
+    second: Glitch Samurai-Run_2
+  - first:
+      213: -3190647130715798709
+    second: Glitch Samurai-Run_3
+  - first:
+      213: -6136284206389373845
+    second: Glitch Samurai-Run_4
+  - first:
+      213: -6372281583512657422
+    second: Glitch Samurai-Run_5
+  - first:
+      213: -1428255439707273858
+    second: Glitch Samurai-Run_6
+  - first:
+      213: -7978627834157822496
+    second: Glitch Samurai-Run_7
+  - first:
+      213: 3673454844452303824
+    second: Glitch Samurai-Run_8
+  - first:
+      213: 919782021901091940
+    second: Glitch Samurai-Run_9
+  - first:
+      213: 7720622376468609233
+    second: Glitch Samurai-Run_10
+  - first:
+      213: -7364902607559521638
+    second: Glitch Samurai-Run_11
+  - first:
+      213: -5788425249422531583
+    second: Glitch Samurai-Run_12
+  - first:
+      213: -4512285411921998634
+    second: Glitch Samurai-Run_13
+  - first:
+      213: -2898745547253644095
+    second: Glitch Samurai-Run_14
+  - first:
+      213: -6338171378048937048
+    second: Glitch Samurai-Run_15
+  - first:
+      213: 4746934871952302904
+    second: Glitch Samurai-Run_16
+  - first:
+      213: 7105139591689217798
+    second: Glitch Samurai-Run_17
+  - first:
+      213: 483096200682960424
+    second: Glitch Samurai-Run_18
+  - first:
+      213: -4646984493433093674
+    second: Glitch Samurai-Run_19
+  - first:
+      213: -4394329400004271577
+    second: Glitch Samurai-Run_20
+  - first:
+      213: 7964842882642329210
+    second: Glitch Samurai-Run_21
+  - first:
+      213: 7956265763490424368
+    second: Glitch Samurai-Run_22
+  - first:
+      213: 1113170237613986013
+    second: Glitch Samurai-Run_23
+  - first:
+      213: 7493416281843395056
+    second: Glitch Samurai-Run_24
+  - first:
+      213: -55794200154245330
+    second: Glitch Samurai-Run_25
+  - first:
+      213: -7367948831654899378
+    second: Glitch Samurai-Run_26
+  - first:
+      213: 2684193215425798962
+    second: Glitch Samurai-Run_27
+  - first:
+      213: 2238315698605184163
+    second: Glitch Samurai-Run_28
+  - first:
+      213: -6646670920609080640
+    second: Glitch Samurai-Run_29
+  - first:
+      213: 5926168932015771929
+    second: Glitch Samurai-Run_30
+  - first:
+      213: -5699484912792052079
+    second: Glitch Samurai-Run_31
+  - first:
+      213: 5520354012746946152
+    second: Glitch Samurai-Run_32
+  - first:
+      213: -4254687153094167895
+    second: Glitch Samurai-Run_33
+  - first:
+      213: 4672856085884667900
+    second: Glitch Samurai-Run_34
+  - first:
+      213: 7357471111603963648
+    second: Glitch Samurai-Run_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Run_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 140
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: accc3dae3000b7740bac8b85980f0d51
+      internalID: -1656617904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_1
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 0
+        width: 140
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3321fcc7032f91468f17b8f9189160e
+      internalID: -2126022621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_2
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 140
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dba7b8fc8f925541a91c4f836498ec1
+      internalID: 1629985634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_3
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 140
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77cc1f660c4a56f46a2dbf7d02d52703
+      internalID: 555547253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_4
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 140
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d3958a272ec1dc429540edf2c6f85b3
+      internalID: -2004213470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_5
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 140
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aba8463c3a5bdca4085b6815f30b39d0
+      internalID: -1825196730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_6
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 140
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 487ef81118e08874ea3d6c19f268f1dd
+      internalID: 1359215804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_7
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 0
+        width: 140
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de28192ff874f4f4b90b09b58d755d3e
+      internalID: -2145936759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_8
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 140
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32658546a4a7c4469e0bdc8c8926c8c
+      internalID: -1412257299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_9
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 0
+        width: 140
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5a747cf96ce4c46847b5efed82629a
+      internalID: 386255388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_10
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 0
+        width: 140
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe020a37c36e3554fb696e8394e4aaeb
+      internalID: 1293938293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_11
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 0
+        width: 140
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a480eb88cde4245bfce3016e4b96aa
+      internalID: 1697582747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9c4936e5a9be12f47bf20dea1021d4b2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Run_0: -1656617904
+      Run_1: -2126022621
+      Run_10: 1293938293
+      Run_11: 1697582747
+      Run_2: 1629985634
+      Run_3: 555547253
+      Run_4: -2004213470
+      Run_5: -1825196730
+      Run_6: 1359215804
+      Run_7: -2145936759
+      Run_8: -1412257299
+      Run_9: 386255388
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

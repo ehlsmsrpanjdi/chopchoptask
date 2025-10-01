@@ -2,5 +2,5 @@
 
 public interface IDamageable
 {
-    public bool TakeDamage();
+    public bool TakeDamage(float _Damage);
 }
