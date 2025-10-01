@@ -28,6 +28,8 @@ public class ResourceManager
         yield return LoadResource("Skill/Skill_3");
         yield return LoadResource("DamageEffect");
         yield return LoadResource("Monster_1");
+
+        yield return LoadResource("UI/BossUI");
     }
 
     public GameObject GetOnLoadedResource(string _ResourcePath)

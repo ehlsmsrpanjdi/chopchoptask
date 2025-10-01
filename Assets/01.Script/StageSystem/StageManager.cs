@@ -28,26 +28,31 @@ public class StageManager
 
     public float monsterSpawnLength = 20f;
 
+    public float bossTime = 20f;
+    public float currentBossTime = 20f;
+
     Vector3 monsterSpawnPoint = new Vector3(20.0f, 0.0f, 0.0f);
 
     public void StageStart()
     {
+        stageStart = false;
         Player.Instance.SetState(StateEnum.Run);
     }
 
     public void NextStage()
     {
-        stageStart = false;
         ++currentStage;
-    }
-
-    public void EndState()
-    {
     }
 
     public void StageClear()
     {
         completeStage = currentStage;
+    }
+
+    public void StageFail()
+    {
+        --currentStage;
+
     }
 
     public void Spawn()
@@ -56,6 +61,7 @@ public class StageManager
         {
             if (completeStage < currentStage)
             {
+                currentBossTime = 20f;
                 SpawnBoss();
             }
             else

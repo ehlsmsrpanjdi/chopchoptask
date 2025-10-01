@@ -1,16 +1,16 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class UIBase : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+
+    public virtual void OnUI()
     {
-        
+        gameObject.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void OffUI()
     {
-        
+        gameObject.SetActive(false);
     }
 }

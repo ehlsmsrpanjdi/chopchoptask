@@ -33,8 +33,6 @@ public class Player : Entitiy
         {
             Destroy(gameObject);
         }
-        entityCurrentHP = 30f;
-        hpBar.SetFill(entityCurrentHP / entityHP);
     }
 
 

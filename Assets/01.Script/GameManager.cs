@@ -51,7 +51,20 @@ public class GameManager : MonoBehaviour
         }
         yield return SceneManager.LoadSceneAsync("StageScene");
         StageManager.Instance.NextStage();
-        yield return CoroutineHelper.WaitTime(3.0f);
+        yield return CoroutineHelper.WaitTime(1.0f);
+        StageManager.Instance.StageStart();
+    }
+
+    public IEnumerator PrevStage()
+    {
+        if (false == isGameInit)
+        {
+            LogHelper.Log("로딩 아직 안됨");
+            yield break;
+        }
+        yield return SceneManager.LoadSceneAsync("StageScene");
+        StageManager.Instance.StageFail();
+        yield return CoroutineHelper.WaitTime(1.0f);
         StageManager.Instance.StageStart();
     }
 
@@ -78,5 +91,10 @@ public class GameManager : MonoBehaviour
     public void DebugGameStart()
     {
         StartCoroutine(GameStart());
+    }
+
+    public void DebugStageFail()
+    {
+        StartCoroutine(PrevStage());
     }
 }

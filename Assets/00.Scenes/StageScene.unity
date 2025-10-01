@@ -949,6 +949,7 @@ GameObject:
   - component: {fileID: 1431124937}
   - component: {fileID: 1431124936}
   - component: {fileID: 1431124935}
+  - component: {fileID: 1431124939}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -1038,51 +1039,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1662094751
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1662094753}
-  - component: {fileID: 1662094752}
-  m_Layer: 0
-  m_Name: UIManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1662094752
+--- !u!114 &1431124939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1662094751}
+  m_GameObject: {fileID: 1431124934}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e575a36ec50826f44a6532ee79e6663c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCanvas: {fileID: 0}
---- !u!4 &1662094753
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1662094751}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.054216273, y: 6.1519217, z: 75.18876}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  mainCanvas: {fileID: 1431124937}
 --- !u!1 &2059964325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,4 +1142,3 @@ SceneRoots:
   - {fileID: 841662442}
   - {fileID: 1431124938}
   - {fileID: 2059964328}
-  - {fileID: 1662094753}
