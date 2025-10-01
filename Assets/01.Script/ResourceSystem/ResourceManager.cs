@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ResourceManager
@@ -19,11 +20,11 @@ public class ResourceManager
 
     Dictionary<string, GameObject> resourceDictionary = new Dictionary<string, GameObject>();
 
-    public void ResourceInit()
+    public IEnumerator ResourceInit()
     {
-        LoadResource("SkillEffect");
-        LoadResource("DamageEffect");
-        LoadResource("Monster_1");
+        yield return LoadResource("SkillEffect");
+        yield return LoadResource("DamageEffect");
+        yield return LoadResource("Monster_1");
     }
 
     public GameObject GetOnLoadedResource(string _ResourcePath)
@@ -31,10 +32,12 @@ public class ResourceManager
         return resourceDictionary[_ResourcePath];
     }
 
-    public GameObject LoadResource(string _ResourcePath)
+    public IEnumerator LoadResource(string _ResourcePath)
     {
-        GameObject obj = Resources.Load<GameObject>(_ResourcePath);
-        resourceDictionary.Add(_ResourcePath, obj);
-        return obj;
+        ResourceRequest request = Resources.LoadAsync<GameObject>(_ResourcePath);
+        yield return request;
+        GameObject loadedObj = request.asset as GameObject;
+        resourceDictionary.Add(_ResourcePath, loadedObj);
+        yield break;
     }
 }

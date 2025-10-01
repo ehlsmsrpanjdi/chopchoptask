@@ -45,7 +45,7 @@ public class Player : Entitiy
             if (runningLength >= StageManager.Instance.monsterSpawnLength)
             {
                 runningLength -= StageManager.Instance.monsterSpawnLength;
-                StageManager.Instance.SpawnMonster();
+                StageManager.Instance.Spawn();
             }
         }
 

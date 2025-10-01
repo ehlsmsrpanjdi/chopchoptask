@@ -18,11 +18,15 @@ public class StageManager
         }
     }
 
-    public static float moveSpeed = 3.0f;
+    public static float moveSpeed = 10f;
 
     public int currentStage = 1;
 
-    public float monsterSpawnLength = 10f;
+    public int completeStage = 1;
+
+    bool stageStart = false;
+
+    public float monsterSpawnLength = 20f;
 
     Vector3 monsterSpawnPoint = new Vector3(20.0f, 0.0f, 0.0f);
 
@@ -33,12 +37,37 @@ public class StageManager
 
     public void NextStage()
     {
-
+        stageStart = false;
+        ++currentStage;
     }
 
     public void EndState()
     {
     }
+
+    public void StageClear()
+    {
+        completeStage = currentStage;
+    }
+
+    public void Spawn()
+    {
+        if (false == stageStart)
+        {
+            if (completeStage < currentStage)
+            {
+                SpawnBoss();
+            }
+            else
+            {
+                SpawnMonster();
+            }
+            stageStart = true;
+            return;
+        }
+        SpawnMonster();
+    }
+
 
     public void SpawnMonster()
     {
@@ -50,5 +79,21 @@ public class StageManager
             GameObject spawnedMonster = MonoBehaviour.Instantiate(monsterInfo);
             spawnedMonster.transform.position = monsterSpawnPoint + Vector3.right * i;
         }
+    }
+
+    public void SpawnBoss()
+    {
+        int currentBossInfo = StageMonsterInfo.Instance.GetCertainBossMonsterTable(currentStage);
+
+        GameObject monsterInfo = null;
+
+        monsterInfo = StageMonsterInfo.Instance.GetMonsterData(currentBossInfo);
+        GameObject spawnedMonster = MonoBehaviour.Instantiate(monsterInfo);
+        spawnedMonster.transform.position = monsterSpawnPoint + Vector3.right;
+        spawnedMonster.transform.localScale = Vector3.one * 3;
+
+        Monster currentMonster = spawnedMonster.GetComponent<Monster>();
+
+        currentMonster.monsterType = MonsterTypeEnum.Boss;
     }
 }

@@ -7,6 +7,12 @@ public enum EnumContainer
 
 }
 
+public enum MonsterTypeEnum
+{
+    None = -1,
+    Normal,
+    Boss,
+}
 
 public enum StateEnum
 {
@@ -26,3 +32,5 @@ public enum skillEnum
     Passive,
     Heal,
 }
+
+

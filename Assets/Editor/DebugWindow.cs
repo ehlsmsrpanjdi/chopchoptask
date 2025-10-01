@@ -14,16 +14,19 @@ public class DebugWindow : EditorWindow
 
     private void OnGUI()
     {
-        if (GUILayout.Button("ResourceLoad"))
+        if (GUILayout.Button("StartGame"))
         {
-            ResourceManager.Instance.ResourceInit();
-            StageMonsterInfo.Instance.Init();
-            SkillManager.Instance.TestInit();
+            GameManager.Instance.DebugGameStart();
         }
 
-        if (GUILayout.Button("stageStart"))
+        if (GUILayout.Button("NextStage"))
         {
-            StageManager.Instance.StageStart();
+            GameManager.Instance.DebugNextStage();
+        }
+
+        if (GUILayout.Button("BossSpawn"))
+        {
+            StageManager.Instance.SpawnBoss();
         }
 
         if (GUILayout.Button("Idle"))
