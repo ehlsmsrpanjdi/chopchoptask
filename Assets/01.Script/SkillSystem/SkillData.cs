@@ -54,6 +54,10 @@ public class SkillDataManager
         data.Add(1, new SkillData(1, 300, 2, 4, 1, 3, skillEnum.Attack));  // 300% 데미지, 2명 때리고, 인당 4타, 1번 이펙트 사용, 쿨타임 3
         data.Add(2, new SkillData(2, 30, 1, 1, 2, 3, skillEnum.Heal, 1));  // 30% 효과, 1번 동작, 횟수 1회, 2번 이펙트 사용,  쿨타임 3, 회복타입
         data.Add(3, new SkillData(3, 1.3f, 10, 1, 4, 15, skillEnum.Passive));  // 130% 효과, 10초 동작, 횟수 1회, 4번 이펙트 사용, 15초 쿨타임, 페시브 타입
+        data.Add(4, new SkillData(4, 40, 10, 15, 1, 8, skillEnum.Attack));  // 데미지, 몇명, 몇타, 타입, 쿨
+        data.Add(5, new SkillData(5, 500, 1, 1, 1, 4, skillEnum.Attack));  // 
+        data.Add(6, new SkillData(6, 100, 3, 3, 1, 5, skillEnum.Attack));  // 
+        data.Add(7, new SkillData(7, 300, 5, 5, 1, 10, skillEnum.Attack));  // 
     }
 
     public Dictionary<int, SkillData> GetAllSkillData()
