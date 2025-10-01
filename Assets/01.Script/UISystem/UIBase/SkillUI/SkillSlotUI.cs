@@ -10,6 +10,8 @@ public class SkillSlotUI : MonoBehaviour
     float selectedSkillCoolTime;
     float currentCoolTime = 0f;
 
+    public int SlotIndex;
+
     private void Reset()
     {
         skillIcon = this.TryFindChild("SkillIcon").GetComponent<Image>();
@@ -18,6 +20,12 @@ public class SkillSlotUI : MonoBehaviour
 
     private void Update()
     {
+        if (selectedSkillCoolTime == 0)
+        {
+            coolTimeImg.fillAmount = 1;
+            return;
+        }
+
         if (0f < currentCoolTime)
         {
             currentCoolTime -= Time.deltaTime;
@@ -35,11 +43,24 @@ public class SkillSlotUI : MonoBehaviour
         currentCoolTime = selectedSkillCoolTime;
     }
 
-    public void Init(int _SkillID)
+    public void Init()
     {
-        SkillData data = SkillDataManager.Instance.GetSkillData(_SkillID);
-        skillIcon.sprite = ResourceManager.Instance.GetOnLoadedSprite("Sprite/Skill_" + _SkillID.ToString());
+        SkillManager skillManager = SkillManager.Instance;
+        SkillData data = skillManager.GetEquipmentSkillData(SlotIndex);
+
+        if (null == data)
+        {
+            currentCoolTime = 0;
+            selectedSkillCoolTime = 0;
+            skillIcon.sprite = ResourceManager.Instance.GetOnLoadedSprite("Sprite/Skill_-1");
+            return;
+        }
+
+        currentCoolTime = skillManager.GetSkillCoolTime(SlotIndex);
         selectedSkillCoolTime = data.coolTime;
+
+
+        skillIcon.sprite = ResourceManager.Instance.GetOnLoadedSprite("Sprite/Skill_" + data.skillID.ToString());
     }
 
 }

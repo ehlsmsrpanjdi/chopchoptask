@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
             yield break;
         }
         UIManager.Instance.GetUI<GoldUI>();
-        UIManager.Instance.GetUI<PlayerStatUI>();
+        UIManager.Instance.GetUI<SelectorUI>();
         yield return SceneManager.LoadSceneAsync("StageScene");
         yield return CoroutineHelper.WaitTime(1.0f);
         StageManager.Instance.StageStart();

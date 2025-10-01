@@ -64,7 +64,7 @@ public class Player : Entitiy
         entityStateMachine.AddState(StateEnum.Attack, new BaseState(AttackStart, AttackUpdate));
 
         SkillManager.Instance.SelectSkill(1);
-        //SkillManager.Instance.SelectSkill(2);
+        SkillManager.Instance.SelectSkill(2);
         SkillManager.Instance.SelectSkill(3);
     }
 
@@ -72,14 +72,15 @@ public class Player : Entitiy
 
     public void HealHP(float _HealRatio)
     {
-        float healAmount = GetHP() * _HealRatio;
-        entityCurrentHP += healAmount;
-        if (entityCurrentHP > entityHP)
+        float currentMaxHP = GetHP();
+        float healAmount = currentMaxHP * _HealRatio;
+        entityCurrentHP += currentMaxHP;
+        if (entityCurrentHP > currentMaxHP)
         {
-            entityCurrentHP = entityHP;
+            entityCurrentHP = currentMaxHP;
         }
 
-        hpBar.SetFill(entityCurrentHP / GetHP());
+        hpBar.SetFill(entityCurrentHP / currentMaxHP);
     }
 
     public override float GetDamage()
@@ -134,7 +135,7 @@ public class Player : Entitiy
     {
         if (true == playerStat.HPLevelUp())
         {
-            entityCurrentHP += playerStat.GetHp();
+            HealHP(playerStat.GetHp());
             hpBar.SetFill(entityCurrentHP / GetHP());
             return true;
         }

@@ -24,6 +24,30 @@ public class SkillManager
     List<float> coolTimeList = new List<float>();
     //List<int> equipmentSkillIndexList = new List<int>();
 
+    public float GetSkillCoolTime(int _index)
+    {
+        if (coolTimeList.Count <= _index)
+        {
+            return 0f;
+        }
+        else
+        {
+            return coolTimeList[_index];
+        }
+    }
+
+    public SkillData GetEquipmentSkillData(int _index)
+    {
+        if(equipmentSkillList.Count <= _index)
+        {
+            return null;
+        }
+        else
+        {
+            return equipmentSkillList[_index];
+        }
+    }
+
     public void SelectSkill(int _SkillID)
     {
         SkillData data = SkillDataManager.Instance.GetSkillData(_SkillID);

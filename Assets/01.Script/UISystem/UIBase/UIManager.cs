@@ -38,6 +38,9 @@ public class UIManager : MonoBehaviour
         uiResourceDictoinary.Add(typeof(BossUI), "UI/BossUI");
         uiResourceDictoinary.Add(typeof(GoldUI), "UI/GoldUI");
         uiResourceDictoinary.Add(typeof(PlayerStatUI), "UI/PlayerStatUI");
+        uiResourceDictoinary.Add(typeof(SkillUI), "UI/SkillUI");
+        uiResourceDictoinary.Add(typeof(SelectorUI), "UI/SelectorUI");
+        uiResourceDictoinary.Add(typeof(SkillContainerUI), "UI/SkillContainerUI");
     }
 
 
@@ -57,6 +60,29 @@ public class UIManager : MonoBehaviour
             return uiDictionary[key] as T;
         }
 
+    }
+
+    public void OnUI<T>() where T : UIBase
+    {
+        Type key = typeof(T);
+        if (uiDictionary.ContainsKey(key))
+        {
+            uiDictionary[key].OnUI();
+        }
+        else
+        {
+            UIBase baseUI = AddUI<T>();
+            baseUI.OnUI();
+        }
+    }
+
+    public void OffUI<T>() where T : UIBase
+    {
+        Type key = typeof(T);
+        if (uiDictionary.ContainsKey(key))
+        {
+            uiDictionary[key].OffUI();
+        }
     }
 
     public T GetUI<T>() where T : UIBase

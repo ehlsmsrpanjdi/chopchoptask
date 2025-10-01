@@ -34,6 +34,16 @@ public class ResourceManager
         yield return LoadResource("UI/BossUI");
         yield return LoadResource("UI/GoldUI");
         yield return LoadResource("UI/PlayerStatUI");
+        yield return LoadResource("UI/SkillUI");
+        yield return LoadResource("UI/SelectorUI");
+        yield return LoadResource("UI/SkillContainerUI");
+
+
+        yield return LoadSprite("Sprite/Skill_-1");
+        yield return LoadSprite("Sprite/Skill_1");
+        yield return LoadSprite("Sprite/Skill_2");
+        yield return LoadSprite("Sprite/Skill_3");
+        //yield return LoadSprite("Sprite/Skil_4");
     }
 
     public Sprite GetOnLoadedSprite(string _resourcePath)
