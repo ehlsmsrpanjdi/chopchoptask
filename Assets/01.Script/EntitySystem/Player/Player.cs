@@ -21,6 +21,8 @@ public class Player : Entitiy
     Entitiy selectedMonster = null;
     float runningLength = 0f;
     public ModifierStat playerBuf = new ModifierStat();
+    PlayerInventory Inventory = new PlayerInventory();
+    PlayerStat playerStat = new PlayerStat();
 
     private void Awake()
     {
@@ -88,6 +90,37 @@ public class Player : Entitiy
 
     #endregion
 
+
+    #region 인벤 및 강화
+
+    public void GainGold(int _GoldAmount)
+    {
+        Inventory.GainGold(_GoldAmount);
+        UIManager.Instance.GetUI<GoldUI>().TextUpdate();
+    }
+
+    public bool UseGold(int _UseAmount)
+    {
+        bool returnValue = Inventory.UseGold(_UseAmount);
+        UIManager.Instance.GetUI<GoldUI>().TextUpdate();
+        return returnValue;
+    }
+
+    public int GetGold()
+    {
+        return Inventory.GetGold();
+    }
+
+    public bool StrUpgrade()
+    {
+        return playerStat.StrLevelUp();
+    }
+
+    public bool HpUpgrade()
+    {
+        return playerStat.HPLevelUp();
+    }
+    #endregion
 
     #region StateMachine
 

@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour
             LogHelper.Log("로딩 아직 안됨");
             yield break;
         }
+        UIManager.Instance.GetUI<GoldUI>();
+        UIManager.Instance.GetUI<PlayerStatUI>();
         yield return SceneManager.LoadSceneAsync("StageScene");
         yield return CoroutineHelper.WaitTime(1.0f);
         StageManager.Instance.StageStart();

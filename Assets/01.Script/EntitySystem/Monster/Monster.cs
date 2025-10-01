@@ -65,6 +65,8 @@ public class Monster : Entitiy
             }
             StageManager.Instance.StageClear();
         }
+        int goldAmount = (int)entityHP / 10;
+        Player.Instance.GainGold(goldAmount);
     }
 
     public void StatMultiplier(float _Ratio)

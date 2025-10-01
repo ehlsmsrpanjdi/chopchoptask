@@ -30,6 +30,8 @@ public class ResourceManager
         yield return LoadResource("Monster_1");
 
         yield return LoadResource("UI/BossUI");
+        yield return LoadResource("UI/GoldUI");
+        yield return LoadResource("UI/PlayerStatUI");
     }
 
     public GameObject GetOnLoadedResource(string _ResourcePath)

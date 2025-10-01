@@ -36,6 +36,8 @@ public class UIManager : MonoBehaviour
     void Init()
     {
         uiResourceDictoinary.Add(typeof(BossUI), "UI/BossUI");
+        uiResourceDictoinary.Add(typeof(GoldUI), "UI/GoldUI");
+        uiResourceDictoinary.Add(typeof(PlayerStatUI), "UI/PlayerStatUI");
     }
 
 
