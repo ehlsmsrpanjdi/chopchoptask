@@ -22,7 +22,10 @@ public class ResourceManager
 
     public IEnumerator ResourceInit()
     {
-        yield return LoadResource("SkillEffect");
+        yield return LoadResource("Skill/Skill_0");
+        yield return LoadResource("Skill/Skill_1");
+        yield return LoadResource("Skill/Skill_2");
+        yield return LoadResource("Skill/Skill_3");
         yield return LoadResource("DamageEffect");
         yield return LoadResource("Monster_1");
     }

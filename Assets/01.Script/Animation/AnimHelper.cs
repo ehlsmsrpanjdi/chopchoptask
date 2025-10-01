@@ -10,3 +10,19 @@ public static class AnimHash
     public static readonly int RunHash = Animator.StringToHash(RunAnimationName);
     public static readonly int AttackHash = Animator.StringToHash(AttackAnimationName);
 }
+
+public static class AnimHelper
+{
+    public static bool IsAnimationEnd(Animator animator)
+    {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        if (stateInfo.normalizedTime >= 1.0f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}

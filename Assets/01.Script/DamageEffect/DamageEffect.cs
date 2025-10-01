@@ -1,14 +1,14 @@
-﻿using TMPro;
+﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DamageEffect : MonoBehaviour
 {
     public TextMeshPro damageText;
 
-    float moveTime = 1f;
+    float moveTime = .5f;
 
     float upSpeed = .5f;
-
     private void Reset()
     {
         damageText = GetComponent<TextMeshPro>();
@@ -33,4 +33,5 @@ public class DamageEffect : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }

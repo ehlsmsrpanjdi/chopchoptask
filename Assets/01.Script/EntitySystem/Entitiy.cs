@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Entitiy : MonoBehaviour, IDamageable
@@ -15,7 +16,6 @@ public class Entitiy : MonoBehaviour, IDamageable
     [field: SerializeField] public Animator animator { get; protected set; }
     [field: SerializeField] public Rigidbody2D rigid { get; protected set; }
     [field: SerializeField] public Collider2D collision { get; protected set; }
-
 
     protected virtual void Reset()
     {

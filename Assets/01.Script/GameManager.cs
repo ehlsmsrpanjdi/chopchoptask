@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
     IEnumerator GameStartCoroutine()
     {
         yield return ResourceManager.Instance.ResourceInit();
-        SkillManager.Instance.TestInit();
 
         isGameInit = true;
     }
@@ -64,7 +63,7 @@ public class GameManager : MonoBehaviour
             yield break;
         }
         yield return SceneManager.LoadSceneAsync("StageScene");
-        yield return CoroutineHelper.WaitTime(3.0f);
+        yield return CoroutineHelper.WaitTime(1.0f);
         StageManager.Instance.StageStart();
     }
 

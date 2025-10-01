@@ -8,7 +8,7 @@ public class Monster : Entitiy
     {
         if (true == Player.Instance.isRunning)
         {
-            transform.position = transform.position + new Vector3(-StageManager.moveSpeed * Time.deltaTime, 0, 0);
+            transform.position = transform.position + new Vector3(-Time.deltaTime * Player.Instance.playerBuf.moveSpeed.GetValue(StageManager.moveSpeed), 0, 0);
         }
     }
 
@@ -18,6 +18,13 @@ public class Monster : Entitiy
         {
             StageManager.Instance.StageClear();
         }
+    }
+
+    public void StatMultiplier(float _Ratio)
+    {
+        entityAttack *= _Ratio;
+        entityCurrentHP *= _Ratio;
+        entityHP *= _Ratio;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

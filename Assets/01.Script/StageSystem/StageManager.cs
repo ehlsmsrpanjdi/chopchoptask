@@ -78,6 +78,7 @@ public class StageManager
             monsterInfo = StageMonsterInfo.Instance.GetMonsterData(currentStageMonsterInfo[i]);
             GameObject spawnedMonster = MonoBehaviour.Instantiate(monsterInfo);
             spawnedMonster.transform.position = monsterSpawnPoint + Vector3.right * i;
+            spawnedMonster.GetComponent<Monster>().StatMultiplier(currentStage);
         }
     }
 
@@ -93,6 +94,7 @@ public class StageManager
         spawnedMonster.transform.localScale = Vector3.one * 3;
 
         Monster currentMonster = spawnedMonster.GetComponent<Monster>();
+        currentMonster.StatMultiplier(currentStage * 10);
 
         currentMonster.monsterType = MonsterTypeEnum.Boss;
     }

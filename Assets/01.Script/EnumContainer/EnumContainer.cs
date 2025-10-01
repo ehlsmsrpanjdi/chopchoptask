@@ -20,6 +20,7 @@ public enum StateEnum
     Idle,
     Run,
     Attack,
+    Skill,
     Hit,
     Dead,
 }

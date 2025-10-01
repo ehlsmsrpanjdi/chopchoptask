@@ -269,7 +269,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2262434749787313899, guid: f9e74aee8e76af3448a95bbec4f7516d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -319,6 +319,7 @@ MonoBehaviour:
   <animator>k__BackingField: {fileID: 6686610217912481508}
   <rigid>k__BackingField: {fileID: 9116231411649759625}
   <collision>k__BackingField: {fileID: 3598969884395984166}
+  monsterType: 0
 --- !u!50 &9116231411649759625
 Rigidbody2D:
   serializedVersion: 5

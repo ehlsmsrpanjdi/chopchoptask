@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections;
 
 public class ModifierManager<T>
 {
@@ -19,12 +18,47 @@ public class ModifierManager<T>
         {
             tempNode = modifierNode.Next;
             Value = modifierNode.Value.GetValue(_Value);
-            if(null != tempNode)
+            if (null != tempNode)
+            {
+                modifierNode = tempNode;
+            }
+            else
+            {
+                return Value;
+            }
+        }
+        return Value;
+    }
+
+    public void Update(float _DeltaTime)
+    {
+        LinkedListNode<ModifierBase<T>> modifierNode = modifierBases.First;
+
+        LinkedListNode<ModifierBase<T>> tempNode = null;
+
+
+        while (null != modifierNode)
+        {
+            tempNode = modifierNode.Next;
+            if (true == modifierNode.Value.Update(_DeltaTime))
+            {
+                modifierBases.Remove(modifierNode.Value);
+            }
+
+            if (null != tempNode)
             {
                 modifierNode = tempNode;
             }
         }
+    }
 
-        return Value;
+    public void AddModifier(ModifierBase<T> _modifierBase)
+    {
+        modifierBases.AddLast(_modifierBase);
+    }
+
+    public void RemoveModifier(ModifierBase<T> _modifierbase)
+    {
+        modifierBases.Remove(_modifierbase);
     }
 }

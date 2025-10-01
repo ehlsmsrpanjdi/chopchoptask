@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 public class SkillBase : MonoBehaviour
 {
     public EffectBase skillEffect;
+    public SkillData skillData;
+
+    int excuteTime;
 
     public Entitiy skillOnwer;
 
@@ -14,12 +18,41 @@ public class SkillBase : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         collision = GetComponent<BoxCollider2D>();
+        if (null == collision)
+        {
+            collision = transform.AddComponent<BoxCollider2D>();
+        }
+    }
+
+    public void Init(int _SkillID)
+    {
+        skillData = SkillDataManager.Instance.GetSkillData(_SkillID);
+        skillEffect = EffectManager.Instance.GetEffect(skillData.effectID);
+        excuteTime = skillData.hitCount;
+    }
+
+    public void Init(SkillData _SkillData)
+    {
+        skillData = _SkillData;
+        skillEffect = EffectManager.Instance.GetEffect(skillData.effectID);
+        excuteTime = skillData.hitCount;
+    }
+    private void Start()
+    {
+        if (null == skillData)
+        {
+            LogHelper.Log("??");
+            return;
+        }
+        if (skillEnum.Attack != skillData.skillType)
+        {
+            Player.Instance.StartCoroutine(skillEffect.Excute(skillData, Player.Instance));
+        }
     }
 
     private void Update()
     {
-        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        if (stateInfo.normalizedTime >= 1.0f)
+        if (true == AnimHelper.IsAnimationEnd(animator))
         {
             Destroy(gameObject);
         }
@@ -27,27 +60,23 @@ public class SkillBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Entitiy colEntity = collision.GetComponent<Entitiy>();
-
-        if (null == colEntity)
+        if (null == skillData)
         {
-            LogHelper.LogWarrning("Entity가 아닌것과 충돌을 수행함");
+            LogHelper.Log("??");
+            return;
+        }
+        if (excuteTime <= 0 || skillEnum.Attack != skillData.skillType)
+        {
+            return;
+        }
+        Monster monster = collision.GetComponent<Monster>();
+
+        if (null == monster)
+        {
             return;
         }
 
-        if (skillEnum.Attack == skillEffect.skillType)
-        {
-            if (skillOnwer == colEntity)
-            {
-                return;
-            }
-            else
-            {
-                skillEffect.Excute(skillOnwer, colEntity);
-                return;
-            }
-        }
-
-        skillEffect.Excute(skillOnwer);
+        --excuteTime;
+        Player.Instance.StartCoroutine(skillEffect.Excute(skillData, Player.Instance, monster));
     }
 }

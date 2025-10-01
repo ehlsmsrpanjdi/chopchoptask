@@ -1,65 +1,66 @@
-﻿public abstract class EffectBase
+﻿using System.Collections;
+
+public abstract class EffectBase
 {
-
-
-    private EffectBase()
-    {
-
-    }
-
-    public EffectBase(float effectSize, float damageRadio, int damageCount, skillEnum skillType)
-    {
-        this.effectSize = effectSize;
-        this.damageRatio = damageRadio;
-        this.damageCount = damageCount;
-        this.skillType = skillType;
-    }
-
-    public skillEnum skillType { get; protected set; }
-
-    public float effectSize { get; protected set; }
-
-    public float damageRatio { get; protected set; }
-
-    public int damageCount { get; protected set; }
-    public abstract void Excute(Entitiy _User, Entitiy _Target = null);
+    public abstract IEnumerator Excute(SkillData _skillData, Player _User, Entitiy _Target = null);
 }
 
 
 public class AttackEffect : EffectBase
 {
-    public AttackEffect(float effectSize, float damageRadio, int damageCount, skillEnum skillType) : base(effectSize, damageRadio, damageCount, skillType)
+    public override IEnumerator Excute(SkillData _skillData, Player _User, Entitiy _Target = null)
     {
-    }
+        if (_Target == null) yield break;
 
-    public override void Excute(Entitiy _User, Entitiy _Target = null)
-    {
-        float Damage = _User.GetDamage();
-        _Target.TakeDamage(Damage * damageRatio);
-    }
+        for (int i = 0; i < _skillData.hitInterval; i++)
+        {
+            if (null == _Target)
+            {
+                yield break;
+            }
+            float damage = _User.GetDamage() * _skillData.damageRatio / 100;
+            _Target.TakeDamage(damage);
 
+            yield return CoroutineHelper.WaitTime(0.1f);
+        }
+    }
 }
 
 public class HealEffect : EffectBase
 {
-    public HealEffect(float effectSize, float damageRadio, int damageCount, skillEnum skillType) : base(effectSize, damageRadio, damageCount, skillType)
+    public override IEnumerator Excute(SkillData _skillData, Player _User, Entitiy _Target = null)
     {
-    }
-
-    public override void Excute(Entitiy _User, Entitiy _Target = null)
-    {
-        throw new System.NotImplementedException();
+        _User.HealHP(_skillData.damageRatio / 100);
+        yield break;
     }
 }
 
-public class PassiveEffect : EffectBase
+public class PassiveAttackEffect : EffectBase
 {
-    public PassiveEffect(float effectSize, float damageRadio, int damageCount, skillEnum skillType) : base(effectSize, damageRadio, damageCount, skillType)
+    public override IEnumerator Excute(SkillData _skillData, Player _User, Entitiy _Target = null)
     {
-
+        MultiModifier modifier = new MultiModifier(_skillData.damageRatio);  // 비율만큼 빨라지고
+        modifier.bufTime = _skillData.hitCount;             // 카운트가 초
+        _User.playerBuf.moveSpeed.AddModifier(modifier);
+        yield break;
     }
-    public override void Excute(Entitiy _User, Entitiy _Target = null)
+}
+
+public class PassiveMoveSpeedEffect : EffectBase
+{
+    public override IEnumerator Excute(SkillData _skillData, Player _User, Entitiy _Target = null)
     {
-        throw new System.NotImplementedException();
+        MultiModifier modifier = new MultiModifier(_skillData.damageRatio);  // 비율만큼 빨라지고
+        modifier.bufTime = _skillData.hitCount;             // 카운트가 초
+        _User.playerBuf.moveSpeed.AddModifier(modifier);
+        yield break;
+    }
+}
+
+public class PassiveAttackSpeedEffect : EffectBase
+{
+    public override IEnumerator Excute(SkillData _skillData, Player _User, Entitiy _Target = null)
+    {
+        yield break;
     }
 }

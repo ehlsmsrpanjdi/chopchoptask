@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class SkillManager
 {
-    Dictionary<int, SkillData> skillDataDictionary = new Dictionary<int, SkillData>();
-
     static SkillManager instance;
 
     public static SkillManager Instance
@@ -19,41 +17,82 @@ public class SkillManager
         }
     }
 
-    public int selectedSkillID = 1;
+    Dictionary<int, SkillData> ownedSkillDictionary = new Dictionary<int, SkillData>();
 
-    public void TestInit()
+    List<SkillData> equipmentSkillList = new List<SkillData>();
+
+    List<float> coolTimeList = new List<float>();
+    //List<int> equipmentSkillIndexList = new List<int>();
+
+    public void SelectSkill(int _SkillID)
     {
-        SkillData data = new SkillData();
+        SkillData data = SkillDataManager.Instance.GetSkillData(_SkillID);
 
-        AttackEffect effect = new AttackEffect(1.0f, 1.0f, 1, skillEnum.Attack);
-
-        data.skillID = 1;
-        data.skillPrefab = ResourceManager.Instance.GetOnLoadedResource("SkillEffect");
-        data.skillEffect = effect;
-
-        skillDataDictionary.Add(data.skillID, data);
+        //SkillData data = ownedSkillDictionary[_SkillID];
+        coolTimeList.Add(0);
+        equipmentSkillList.Add(data);
     }
 
-    public SkillData GetSkillData(int _SkillID)
+    public void UnSelectSkill(int _SkillIndex)
     {
-        if (true == skillDataDictionary.TryGetValue(_SkillID, out SkillData Data))
+        equipmentSkillList.RemoveAt(_SkillIndex);
+        coolTimeList.RemoveAt(_SkillIndex);
+    }
+
+    public void Update(float _Deltatime)
+    {
+        for (int i = 0; i < coolTimeList.Count; ++i)
         {
-            return Data;
-        }
-        else
-        {
-            LogHelper.LogWarrning("없는 스킬 참조 : " + _SkillID);
-            return null;
+            if (coolTimeList[i] > 0f)
+            {
+                coolTimeList[i] -= _Deltatime;
+                if (coolTimeList[i] < 0f)
+                {
+                    coolTimeList[i] = 0;
+                }
+            }
         }
     }
 
-    public SkillBase SpawnSkill()
+    public SkillBase ExcuteSkill()
     {
-        SkillData skillData = GetSkillData(selectedSkillID);
+        for (int i = 0; i < coolTimeList.Count; ++i)
+        {
+            SkillData data = equipmentSkillList[i];
+            if(-1 != data.skillCondition)
+            {
+                if(false == SkillConditionContainer.Instance.CheckCondition(data.skillCondition, data.damageRatio))
+                {
+                    continue;
+                }
+            }
+            if (coolTimeList[i] <= 0)
+            {
+                coolTimeList[i] = equipmentSkillList[i].coolTime;
+                return SpawnSkill(i);
+            }
+        }
+        return null;
+    }
+    public SkillBase SpawnSkill(int _SkillIndex)
+    {
+        SkillData data = equipmentSkillList[_SkillIndex];
+        GameObject skillObj = ResourceManager.Instance.GetOnLoadedResource("Skill/Skill_" + data.skillID);
+        GameObject spawnedObj = MonoBehaviour.Instantiate(skillObj);
+        SkillBase spawnedSkill = spawnedObj.GetComponent<SkillBase>();
 
-        GameObject obj = MonoBehaviour.Instantiate(skillData.skillPrefab);
-        SkillBase baseSkill = obj.GetComponent<SkillBase>();
-        baseSkill.skillEffect = skillData.skillEffect;
-        return obj.GetComponent<SkillBase>();
+        spawnedSkill.Init(data);
+        return spawnedSkill;
+    }
+
+    public SkillBase SpawnNormalSkill()
+    {
+        SkillData data = SkillDataManager.Instance.GetSkillData(0);
+        GameObject skillObj = ResourceManager.Instance.GetOnLoadedResource("Skill/Skill_" + data.skillID);
+        GameObject spawnedObj = MonoBehaviour.Instantiate(skillObj);
+        SkillBase spawnedSkill = spawnedObj.GetComponent<SkillBase>();
+
+        spawnedSkill.Init(data);
+        return spawnedSkill;
     }
 }
