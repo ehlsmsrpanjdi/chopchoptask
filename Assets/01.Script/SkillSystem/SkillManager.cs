@@ -19,9 +19,9 @@ public class SkillManager
 
     Dictionary<int, SkillData> ownedSkillDictionary = new Dictionary<int, SkillData>();
 
-    List<SkillData> equipmentSkillList = new List<SkillData>();
+    List<SkillData> equipmentSkillList = new List<SkillData>() { null, null, null, null, null };
 
-    List<float> coolTimeList = new List<float>();
+    List<float> coolTimeList = new List<float>() { 0, 0, 0, 0, 0 };
     //List<int> equipmentSkillIndexList = new List<int>();
 
     public float GetSkillCoolTime(int _index)
@@ -38,7 +38,7 @@ public class SkillManager
 
     public SkillData GetEquipmentSkillData(int _index)
     {
-        if(equipmentSkillList.Count <= _index)
+        if (equipmentSkillList.Count <= _index)
         {
             return null;
         }
@@ -48,19 +48,32 @@ public class SkillManager
         }
     }
 
-    public void SelectSkill(int _SkillID)
+    //현재 장착중인 스킬이 아니라면 -1반환 맞으면 int반환
+    public int IsEquipmentSkill(int _SkilID)
+    {
+        SkillData skillData = SkillDataManager.Instance.GetSkillData(_SkilID);
+
+        for (int i = 0; i < equipmentSkillList.Count; ++i)
+        {
+            if (skillData == equipmentSkillList[i])
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void SelectSkill(int _SlotNumber, int _SkillID)
     {
         SkillData data = SkillDataManager.Instance.GetSkillData(_SkillID);
-
-        //SkillData data = ownedSkillDictionary[_SkillID];
-        coolTimeList.Add(0);
-        equipmentSkillList.Add(data);
+        coolTimeList[_SlotNumber] = data.coolTime;
+        equipmentSkillList[_SlotNumber] = data;
     }
 
     public void UnSelectSkill(int _SkillIndex)
     {
-        equipmentSkillList.RemoveAt(_SkillIndex);
-        coolTimeList.RemoveAt(_SkillIndex);
+        equipmentSkillList[_SkillIndex] = null;
+        coolTimeList[_SkillIndex] = 0;
     }
 
     public void Update(float _Deltatime)
@@ -83,6 +96,10 @@ public class SkillManager
         for (int i = 0; i < coolTimeList.Count; ++i)
         {
             SkillData data = equipmentSkillList[i];
+            if (null == data)
+            {
+                continue;
+            }
             if (-1 != data.skillCondition)
             {
                 if (false == SkillConditionContainer.Instance.CheckCondition(data.skillCondition, data.damageRatio))

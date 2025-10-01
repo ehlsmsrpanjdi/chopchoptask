@@ -62,10 +62,6 @@ public class Player : Entitiy
         entityStateMachine.AddState(StateEnum.Idle, new BaseState(IdleStart));
         entityStateMachine.AddState(StateEnum.Run, new BaseState(RunStart, null, RunEnd));
         entityStateMachine.AddState(StateEnum.Attack, new BaseState(AttackStart, AttackUpdate));
-
-        SkillManager.Instance.SelectSkill(1);
-        SkillManager.Instance.SelectSkill(2);
-        SkillManager.Instance.SelectSkill(3);
     }
 
     #region 전투 관련

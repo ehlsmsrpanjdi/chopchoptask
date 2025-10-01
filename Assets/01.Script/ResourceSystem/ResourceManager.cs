@@ -43,6 +43,7 @@ public class ResourceManager
         yield return LoadSprite("Sprite/Skill_1");
         yield return LoadSprite("Sprite/Skill_2");
         yield return LoadSprite("Sprite/Skill_3");
+        yield return LoadSprite("Sprite/Change");
         //yield return LoadSprite("Sprite/Skil_4");
     }
 

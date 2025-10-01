@@ -212,7 +212,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillIcon: {fileID: 5204258447825370442}
   coolTimeImg: {fileID: 8356651213294511507}
+  skillBtn: {fileID: 3274251776798464286}
   SlotIndex: 0
+  SkillID: -1
 --- !u!1 &1928883908000610439
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +352,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillIcon: {fileID: 7579942591423751727}
   coolTimeImg: {fileID: 7892169208923864700}
+  skillBtn: {fileID: 6228960220062590298}
   SlotIndex: 0
+  SkillID: -1
 --- !u!1 &2193674711868949703
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +492,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillIcon: {fileID: 3955697912456042873}
   coolTimeImg: {fileID: 7293909538758419880}
+  skillBtn: {fileID: 5649770529316468463}
   SlotIndex: 0
+  SkillID: -1
 --- !u!1 &2808935934147354025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,7 +1157,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillIcon: {fileID: 8548114097181818403}
   coolTimeImg: {fileID: 1834958910013652363}
+  skillBtn: {fileID: 5809183684384636697}
   SlotIndex: 0
+  SkillID: -1
 --- !u!1 &7447563769304346437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1490,7 +1498,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillIcon: {fileID: 5526929285937436249}
   coolTimeImg: {fileID: 6748930825272675202}
+  skillBtn: {fileID: 6455663473693023451}
   SlotIndex: 0
+  SkillID: -1
 --- !u!1 &9134710501631284340
 GameObject:
   m_ObjectHideFlags: 0

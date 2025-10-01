@@ -12,10 +12,16 @@ public class SkillViewUI : MonoBehaviour
         skillIconButton = transform.GetComponent<Button>();
     }
 
-    public void Init(int _SkillId)
+    public bool Init(int _SkillId)
     {
+        if (null == SkillDataManager.Instance.GetSkillData(_SkillId))
+        {
+            return false;
+        }
+
         skillIcon.sprite = ResourceManager.Instance.GetOnLoadedSprite("Sprite/Skill_" + _SkillId.ToString());
         selectedSkillID = _SkillId;
+        return true;
     }
 
     private void Start()
@@ -26,6 +32,8 @@ public class SkillViewUI : MonoBehaviour
     void OnClickButton()
     {
         SkillContainerUI Owner = UIManager.Instance.GetUI<SkillContainerUI>();
-        Owner.SetDiscription("asdf");
+        SkillData data = SkillDataManager.Instance.GetSkillData(selectedSkillID);
+        Owner.SetDiscription(EffectDiscriptionFactory.Instance.GetEffectDiscription(data));
+        Owner.selectedSkillID = selectedSkillID;
     }
 }
