@@ -1,5 +1,4 @@
-﻿using TreeEditor;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SkillSlotUI : MonoBehaviour
