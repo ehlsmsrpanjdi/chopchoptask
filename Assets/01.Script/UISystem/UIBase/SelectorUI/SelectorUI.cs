@@ -5,12 +5,13 @@ public class SelectorUI : UIBase
     public Button statBtn;
     public Button skillBtn;
     public Button invenBtn;
-
+    public Button nextStageBtn;
     private void Reset()
     {
         statBtn = this.TryFindChild("StatBtn").GetComponent<Button>();
         skillBtn = this.TryFindChild("SkillBtn").GetComponent<Button>();
         invenBtn = this.TryFindChild("InvenBtn").GetComponent<Button>();
+        nextStageBtn = this.TryFindChild("NextStageBtn").GetComponent<Button>();
     }
 
     private void Start()
@@ -18,6 +19,7 @@ public class SelectorUI : UIBase
         statBtn.onClick.AddListener(OnClickStat);
         skillBtn.onClick.AddListener(OnClickSkill);
         invenBtn.onClick.AddListener(OnClickInven);
+        nextStageBtn.onClick.AddListener(OnClickNextStage);
         UIManager.Instance.OnUI<PlayerStatUI>();
         UIManager.Instance.GetUI<SkillUI>().OffUI();
     }
@@ -37,5 +39,10 @@ public class SelectorUI : UIBase
     void OnClickInven()
     {
         UIManager.Instance.OnUI<SkillContainerUI>();
+    }
+
+    void OnClickNextStage()
+    {
+        GameManager.Instance.DebugNextStage();
     }
 }

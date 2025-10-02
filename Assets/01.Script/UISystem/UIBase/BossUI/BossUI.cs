@@ -11,6 +11,12 @@ public class BossUI : UIBase
         bossHpFillImg = this.TryFindChild("BossHP").GetComponent<Image>();
     }
 
+    public override void OnUI()
+    {
+        base.OnUI();
+        SetHpRatio(1f);
+        SetTimerRatio(1f);
+    }
     public void SetTimerRatio(float ratio)
     {
         timerFillImg.fillAmount = ratio;

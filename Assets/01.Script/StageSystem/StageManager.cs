@@ -77,13 +77,13 @@ public class StageManager
 
     public void SpawnMonster()
     {
-        List<int> currentStageMonsterInfo = StageMonsterInfo.Instance.GetCertainStageMonsterTable(currentStage);
+        int currentStageMonsterInfo = StageMonsterInfo.Instance.GetCertainStageMonsterTable(currentStage);
         GameObject monsterInfo = null;
-        for (int i = 0; i < currentStageMonsterInfo.Count; ++i)
+        for (int i = 0; i < 5; ++i)
         {
-            monsterInfo = StageMonsterInfo.Instance.GetMonsterData(currentStageMonsterInfo[i]);
+            monsterInfo = StageMonsterInfo.Instance.GetMonsterData(currentStageMonsterInfo);
             GameObject spawnedMonster = MonoBehaviour.Instantiate(monsterInfo);
-            spawnedMonster.transform.position = monsterSpawnPoint + Vector3.right * i;
+            spawnedMonster.transform.position = monsterSpawnPoint + Vector3.right * i * 1.5f;
             spawnedMonster.GetComponent<Monster>().StatMultiplier(currentStage);
         }
     }

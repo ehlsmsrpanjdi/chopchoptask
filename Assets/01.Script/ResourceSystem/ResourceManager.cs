@@ -33,7 +33,10 @@ public class ResourceManager
         yield return LoadResource("Skill/Skill_6");
         yield return LoadResource("Skill/Skill_7");
         yield return LoadResource("DamageEffect");
+
         yield return LoadResource("Monster_1");
+        yield return LoadResource("Monster_2");
+        yield return LoadResource("Monster_3");
 
         yield return LoadResource("UI/BossUI");
         yield return LoadResource("UI/GoldUI");

@@ -30,8 +30,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    bool isGameStart = false;
-
     private void Start()
     {
         StartCoroutine(GameStartCoroutine());
@@ -46,13 +44,8 @@ public class GameManager : MonoBehaviour
         DebugGameStart();
     }
 
-    public IEnumerator NextStage()
+    IEnumerator NextStage()
     {
-        if (false == isGameInit)
-        {
-            LogHelper.Log("로딩 아직 안됨");
-            yield break;
-        }
         yield return SceneManager.LoadSceneAsync("StageScene");
         StageManager.Instance.NextStage();
         Player.Instance.NextStage();
@@ -60,7 +53,7 @@ public class GameManager : MonoBehaviour
         StageManager.Instance.StageStart();
     }
 
-    public IEnumerator PrevStage()
+    IEnumerator PrevStage()
     {
         if (false == isGameInit)
         {
@@ -69,6 +62,7 @@ public class GameManager : MonoBehaviour
         }
         yield return SceneManager.LoadSceneAsync("StageScene");
         StageManager.Instance.StageFail();
+        Player.Instance.NextStage();
         yield return CoroutineHelper.WaitTime(1.0f);
         StageManager.Instance.StageStart();
     }
@@ -92,7 +86,14 @@ public class GameManager : MonoBehaviour
 
     public void DebugNextStage()
     {
-        StartCoroutine(NextStage());
+        if (StageManager.Instance.completeStage >= StageManager.Instance.currentStage)
+        {
+            StartCoroutine(NextStage());
+        }
+        else
+        {
+            return;
+        }
     }
 
     public void DebugGameStart()

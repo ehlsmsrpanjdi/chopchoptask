@@ -57,6 +57,10 @@ public class Monster : Entitiy
 
     public override bool TakeDamage(float _Damage)
     {
+        if (true == isDead)
+        {
+            return false;
+        }
         bool damagedResult = base.TakeDamage(_Damage);
         if (MonsterTypeEnum.Boss == monsterType)
         {
@@ -67,6 +71,10 @@ public class Monster : Entitiy
 
     public override bool TakeCriticalDamage(float _Damage)
     {
+        if (true == isDead)
+        {
+            return false;
+        }
         bool damagedResult = base.TakeCriticalDamage(_Damage);
 
         if (MonsterTypeEnum.Boss == monsterType)
@@ -93,6 +101,7 @@ public class Monster : Entitiy
         Player.Instance.GainGold(goldAmount);
         Destroy(hpBar.gameObject);
         collision.enabled = false;
+        hpBar = null;
     }
 
     private void OnDestroy()

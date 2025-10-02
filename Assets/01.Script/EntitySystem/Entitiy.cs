@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Entitiy : MonoBehaviour, IDamageable
@@ -22,6 +22,18 @@ public class Entitiy : MonoBehaviour, IDamageable
         animator = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
         collision = GetComponent<Collider2D>();
+        if (null == rigid)
+        {
+            rigid = transform.AddComponent<Rigidbody2D>();
+            rigid.constraints = RigidbodyConstraints2D.FreezePositionY;
+
+        }
+        if (null == collision)
+        {
+            collision = transform.AddComponent<BoxCollider2D>();
+            collision.isTrigger = true;
+        }
+
         hpBar = transform.GetChild(0).GetComponent<EntityHPBar>();
     }
 

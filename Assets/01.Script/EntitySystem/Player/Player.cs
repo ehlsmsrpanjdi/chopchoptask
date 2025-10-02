@@ -228,7 +228,7 @@ public class Player : Entitiy
 
         if (skillEnum.Attack == spawnedSkill.skillData.skillType)
         {
-            spawnedSkill.transform.position = selectedMonster.transform.position;
+            spawnedSkill.transform.position = selectedMonster.transform.position + Vector3.left * 0.5f + Vector3.down * 0.5f;
         }
         else
         {
