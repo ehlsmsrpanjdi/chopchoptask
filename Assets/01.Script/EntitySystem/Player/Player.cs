@@ -52,7 +52,7 @@ public class Player : Entitiy
             }
         }
 
-
+        playerBuf.Update(frameTime);
         entityStateMachine.StateUpdate(frameTime);
         SkillManager.Instance.Update(frameTime);
     }
@@ -196,6 +196,11 @@ public class Player : Entitiy
         }
     }
 
+    void AttackEnd()
+    {
+        animator.SetFloat("AttackSpeed", 1f);
+    }
+
     void SkillStart()
     {
         animator.Play(AnimHash.AttackHash);
@@ -219,6 +224,7 @@ public class Player : Entitiy
     #region 애니메이션 콜백
     void SkillSpawn()
     {
+        animator.SetFloat("AttackSpeed", playerBuf.attackSpeed.GetValue(1f));
         SkillBase spawnedSkill = SkillManager.Instance.ExcuteSkill();
         if (null == spawnedSkill)
         {

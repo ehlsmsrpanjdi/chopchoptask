@@ -52,6 +52,10 @@ public class ModifierManager<T>
             {
                 modifierNode = tempNode;
             }
+            else
+            {
+                modifierNode = null;
+            }
         }
     }
 

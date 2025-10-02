@@ -48,9 +48,9 @@ public class PassiveAttackEffect : EffectBase
 {
     public override IEnumerator Excute(SkillData _skillData, Player _User, Entitiy _Target = null)
     {
-        MultiModifier modifier = new MultiModifier(_skillData.damageRatio);  // 비율만큼 빨라지고
+        MultiModifier modifier = new MultiModifier(_skillData.damageRatio);  // 비율만큼 강해지고
         modifier.bufTime = _skillData.hitCount;             // 카운트가 초
-        _User.playerBuf.moveSpeed.AddModifier(modifier);
+        _User.playerBuf.attack.AddModifier(modifier);
         yield break;
     }
 }
@@ -70,6 +70,9 @@ public class PassiveAttackSpeedEffect : EffectBase
 {
     public override IEnumerator Excute(SkillData _skillData, Player _User, Entitiy _Target = null)
     {
+        MultiModifier modifier = new MultiModifier(_skillData.damageRatio);  // 비율만큼 빨라지고
+        modifier.bufTime = _skillData.hitCount;             // 카운트가 초
+        _User.playerBuf.attackSpeed.AddModifier(modifier);
         yield break;
     }
 }

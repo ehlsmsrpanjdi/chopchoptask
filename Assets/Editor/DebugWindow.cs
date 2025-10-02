@@ -29,5 +29,10 @@ public class DebugWindow : EditorWindow
             Player.Instance.GainGold(100000);
         }
 
+        if (GUILayout.Button("playerAttackSpeed"))
+        {
+            Player.Instance.animator.SetFloat("AttackSpeed", 10f);
+        }
+
     }
 }

@@ -32,6 +32,8 @@ public class ResourceManager
         yield return LoadResource("Skill/Skill_5");
         yield return LoadResource("Skill/Skill_6");
         yield return LoadResource("Skill/Skill_7");
+        yield return LoadResource("Skill/Skill_8");
+        yield return LoadResource("Skill/Skill_9");
         yield return LoadResource("DamageEffect");
 
         yield return LoadResource("Monster_1");
@@ -54,6 +56,8 @@ public class ResourceManager
         yield return LoadSprite("Sprite/Skill_5");
         yield return LoadSprite("Sprite/Skill_6");
         yield return LoadSprite("Sprite/Skill_7");
+        yield return LoadSprite("Sprite/Skill_8");
+        yield return LoadSprite("Sprite/Skill_9");
         yield return LoadSprite("Sprite/Change");
         //yield return LoadSprite("Sprite/Skil_4");
     }
