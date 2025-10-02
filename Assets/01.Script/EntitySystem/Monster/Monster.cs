@@ -87,7 +87,7 @@ public class Monster : Entitiy
     public override void Dead()
     {
         isDead = true;
-        animator.Play(AnimHash.DeadHash);
+        animator.Play(AnimHash.DeadHash, 0, 0f);
 
         if (MonsterTypeEnum.Boss == monsterType)
         {
