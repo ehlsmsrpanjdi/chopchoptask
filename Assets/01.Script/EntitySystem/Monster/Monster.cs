@@ -6,6 +6,8 @@ public class Monster : Entitiy
 
     BossUI bossUI;
 
+    bool isDead = false;
+
     private void FixedUpdate()
     {
         if (true == Player.Instance.isRunning)
@@ -29,6 +31,14 @@ public class Monster : Entitiy
 
     private void Update()
     {
+        if (true == isDead)
+        {
+            if (true == AnimHelper.IsAnimationEnd(animator, AnimHash.DeadHash))
+            {
+                Destroy(gameObject);
+            }
+        }
+
         if (MonsterTypeEnum.Boss == monsterType)
         {
             StageManager instance = StageManager.Instance;
@@ -66,8 +76,11 @@ public class Monster : Entitiy
         return damagedResult;
     }
 
-    private void OnDestroy()
+    public override void Dead()
     {
+        isDead = true;
+        animator.Play(AnimHash.DeadHash);
+
         if (MonsterTypeEnum.Boss == monsterType)
         {
             if (bossUI != null)
@@ -78,6 +91,13 @@ public class Monster : Entitiy
         }
         int goldAmount = (int)entityHP / 10;
         Player.Instance.GainGold(goldAmount);
+        Destroy(hpBar.gameObject);
+        collision.enabled = false;
+    }
+
+    private void OnDestroy()
+    {
+
     }
 
     public void StatMultiplier(float _Ratio)

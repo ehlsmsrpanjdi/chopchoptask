@@ -24,6 +24,17 @@ public class SkillManager
     List<float> coolTimeList = new List<float>() { 0, 0, 0, 0, 0 };
     //List<int> equipmentSkillIndexList = new List<int>();
 
+    public void Reset()
+    {
+        for (int i = 0; i < equipmentSkillList.Count; ++i)
+        {
+            if (null != equipmentSkillList[i])
+            {
+                coolTimeList[i] = equipmentSkillList[i].coolTime;
+            }
+        }
+    }
+
     public float GetSkillCoolTime(int _index)
     {
         if (coolTimeList.Count <= _index)

@@ -39,6 +39,14 @@ public class SkillUI : UIBase
         }
     }
 
+    public void ResetUI()
+    {
+        foreach (SkillSlotUI slot in skillSlots)
+        {
+            slot.Init();
+        }
+    }
+
     public void SkillChangeMode()
     {
         foreach (SkillSlotUI slot in skillSlots)

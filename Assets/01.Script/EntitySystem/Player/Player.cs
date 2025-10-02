@@ -64,6 +64,15 @@ public class Player : Entitiy
         entityStateMachine.AddState(StateEnum.Attack, new BaseState(AttackStart, AttackUpdate));
     }
 
+    public void NextStage()
+    {
+        runningLength = 0f;
+        SetState(StateEnum.Idle);
+        playerBuf.Reset();
+        SkillManager.Instance.Reset();
+        UIManager.Instance.GetUI<SkillUI>().ResetUI();
+    }
+
     #region 전투 관련
 
     public void HealHP(float _HealRatio)

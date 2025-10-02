@@ -8,4 +8,10 @@
         attack.Update(_DeltaTime);
         moveSpeed.Update(_DeltaTime);
     }
+
+    public void Reset()
+    {
+        attack.Reset();
+        moveSpeed.Reset();
+    }
 }

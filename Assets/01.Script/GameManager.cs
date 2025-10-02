@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    bool isGameStart = false;
+
     private void Start()
     {
         StartCoroutine(GameStartCoroutine());
@@ -40,6 +42,8 @@ public class GameManager : MonoBehaviour
         yield return ResourceManager.Instance.ResourceInit();
 
         isGameInit = true;
+
+        DebugGameStart();
     }
 
     public IEnumerator NextStage()
@@ -51,6 +55,7 @@ public class GameManager : MonoBehaviour
         }
         yield return SceneManager.LoadSceneAsync("StageScene");
         StageManager.Instance.NextStage();
+        Player.Instance.NextStage();
         yield return CoroutineHelper.WaitTime(1.0f);
         StageManager.Instance.StageStart();
     }

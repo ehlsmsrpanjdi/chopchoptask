@@ -4,7 +4,10 @@ public class ModifierManager<T>
 {
     LinkedList<ModifierBase<T>> modifierBases = new LinkedList<ModifierBase<T>>();
 
-
+    public void Reset()
+    {
+        modifierBases.Clear();
+    }
     public T GetValue(T _Value)
     {
         LinkedListNode<ModifierBase<T>> modifierNode = modifierBases.First;
